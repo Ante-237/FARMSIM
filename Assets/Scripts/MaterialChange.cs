@@ -6,8 +6,7 @@ public class MaterialChange : MonoBehaviour
 {
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material highLightMaterial;
-    public bool swap = false;
-    private bool swapdown = true;
+
     private Material[] Current_M = new Material[4];
 
 
@@ -17,23 +16,23 @@ public class MaterialChange : MonoBehaviour
     private void Start()
     {
        meshRenderer = GetComponent<MeshRenderer>();
+       Current_M = meshRenderer.materials;
     }
 
-
-    private void Update()
+    public void HighLightTool(bool state)
     {
-        if (swap)
+        if(state)
         {
-
-            Current_M = meshRenderer.materials;
-           
             Current_M[2] = highLightMaterial;
             Current_M[3] = highLightMaterial;
-          
-
-            swap = false;
             meshRenderer.materials = Current_M;
         }
-        
+
+        if (!state)
+        {
+            Current_M[2] = defaultMaterial;
+            Current_M[3] = defaultMaterial;
+            meshRenderer.materials = Current_M;
+        }
     }
 }
