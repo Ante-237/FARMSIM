@@ -209,6 +209,7 @@ public class SimulationManager : MonoBehaviour
         {
             if(currentTime > _settings.growthGap)
             {
+                UpdateStep(8);
                 currentTime = 0;
                 currentIndex += 1;
 
@@ -221,7 +222,7 @@ public class SimulationManager : MonoBehaviour
 
                 if(currentIndex < Plantlevels.Count)
                 {
-                    _settings.growthGap += 0.5f;
+                   // _settings.growthGap += 0.5f;
                     _settings.TotalAvailableWater -= 10;
                     _settings.SoilQuality -= 10;
                     trackingManager.UpdateCanWaterTracker();

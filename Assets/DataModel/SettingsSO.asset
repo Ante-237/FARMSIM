@@ -22,14 +22,14 @@ MonoBehaviour:
   - create a hole with the trowel
   - plant the seed
   - water the soil
-  - 'wait for germincation '
-  - improve soil qualilty is it goes red
-  TotalAvailableWater: 52
-  SoilQuality: 52
+  - 'wait for germination '
+  - keep improving soli quality
+  TotalAvailableWater: -83
+  SoilQuality: -53
   TotalAvailableWaterMax: 100
   SoilQualityMax: 100
   WaterMax: 50
-  currentWater: 32
+  currentWater: 28
   Good: {r: 0, g: 1, b: 0.11066723, a: 1}
   upperbound: 0.5
   normal: {r: 0.9716981, g: 0.7975027, b: 0, a: 1}
@@ -39,4 +39,6 @@ MonoBehaviour:
   TimeToValidate: 2
   phMax: 50
   fertilizerMin: 5
-  currentFertilizer: 40
+  currentFertilizer: 245
+  gapCheck: 0.4
+  growthGap: 12
