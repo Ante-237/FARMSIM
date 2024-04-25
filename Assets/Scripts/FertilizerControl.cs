@@ -30,6 +30,4 @@ public class FertilizerControl : MonoBehaviour
             meshRenderer.materials = all_materials;
         }
     }
-
-
 }

@@ -5,6 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SettingsSO", menuName = "Settings/SettingsSO")]
 public class SettingsSO : ScriptableObject
 {
+
+    [Header("Steps")]
+    [Multiline]
+    public List<string> all_Steps = new List<string>();
+
+    [Header("Runtime Variables")]
+
     public float TotalAvailableWater = 0.5f;
     public float SoilQuality = 0.5f;
     public float TotalAvailableWaterMax = 100f;
@@ -12,6 +19,7 @@ public class SettingsSO : ScriptableObject
 
 
     public float WaterMax = 50;
+    public float currentWater = 0f;
     public Color Good;
     public float upperbound = 0.5f;
     public Color normal;
@@ -24,4 +32,8 @@ public class SettingsSO : ScriptableObject
 
     public float phMax = 50;
     public float fertilizerMin = 5f;
+    public float currentFertilizer = 0f;
+
+    public float gapCheck = 0.4f;
+    public float growthGap = 2.0f;
 }

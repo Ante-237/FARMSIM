@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class CheckWaterCan : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class CheckWaterCan : MonoBehaviour
     [SerializeField] private Material HighlightM;
     private Material[] _materials = new Material[6];
     private MeshRenderer _meshRenderer;
+
+    public UnityEvent CheckerWaterUpdateEvent;
+    public UnityEvent WaterFlowEvent;
 
     private float initialAmount = 0;
     private bool isflowing = false;
@@ -52,6 +56,8 @@ public class CheckWaterCan : MonoBehaviour
             _materials[1] = defaultM;
             _materials[2] = defaultM;
         }
+
+        _meshRenderer.materials = _materials;
     }
 
     private void Update()
@@ -59,7 +65,6 @@ public class CheckWaterCan : MonoBehaviour
 
         if(transform.localEulerAngles.x > 20 && transform.localEulerAngles.x < 180 && isWater)
         {
-            Debug.Log("Can tilled over certain angle activate water spray. at angel : " + transform.localEulerAngles.x);
             particleSystem.Play();
             isflowing = true;
         }
@@ -80,7 +85,7 @@ public class CheckWaterCan : MonoBehaviour
         imageFill.fillAmount = (initialAmount / settingsSO.WaterMax);
     }
 
-  
+    bool FirstTime = false;
 
     void reduceWaterAmount()
     {
@@ -90,6 +95,17 @@ public class CheckWaterCan : MonoBehaviour
             {
                 initialTime = 0;
                 initialAmount -= timeGap;
+                settingsSO.currentWater = settingsSO.WaterMax - initialAmount;
+                if(CheckerWaterUpdateEvent != null)
+                {
+                    CheckerWaterUpdateEvent.Invoke();
+                }
+
+                if(!FirstTime)
+                {
+                    WaterFlowEvent.Invoke();
+                    FirstTime = true;
+                }
             }
 
             initialTime += Time.deltaTime;

@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e5cefb4a45ffd429fe39a0311eefdd, type: 3}
   m_Name: SettingsSO
   m_EditorClassIdentifier: 
+  all_Steps:
+  - 'we shall be growing a wheat plant
+
+    <color=yellow> Press B to Continue </color>'
+  - We need to improve the soil ph before planting
+  - till the soil
+  - add more fertilizer
+  - create a hole with the trowel
+  - plant the seed
+  - water the soil
+  - 'wait for germincation '
+  - improve soil qualilty is it goes red
   TotalAvailableWater: 52
   SoilQuality: 52
   TotalAvailableWaterMax: 100
   SoilQualityMax: 100
-  WaterMax: 10
+  WaterMax: 50
+  currentWater: 32
   Good: {r: 0, g: 1, b: 0.11066723, a: 1}
   upperbound: 0.5
   normal: {r: 0.9716981, g: 0.7975027, b: 0, a: 1}
@@ -26,3 +39,4 @@ MonoBehaviour:
   TimeToValidate: 2
   phMax: 50
   fertilizerMin: 5
+  currentFertilizer: 40
